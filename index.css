@@ -1,0 +1,48 @@
+body{
+    background-color: aqua;
+
+}
+a:link{color:white}
+a:visited{color:white}
+#everything{
+    margin: auto;
+    width: 100%;
+}
+#banner{
+    height: 160px;
+    background: white;
+    margin-bottom: 50px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 50px;
+    color:gray;
+    font-size:140px;
+}
+#menuBar {
+    margin-top: 60px;
+    background: gray;
+    float: right;
+    font-size: 17px;
+}
+#menuBar .menuButton{
+    width: 150px;
+    background: gray;
+    border: 5px solid black;
+    padding:auto;
+    text-align: center;
+    color:white;
+    margin:10px;
+    border-radius: 20px;
+    display:inline-block;
+}
+#menuBar .menuButton:HOVER{
+    background: black;
+}
+table{
+    border: 1px crimson double;
+    width: 100%;
+}
+innerTable{
+    border: 1px crimson double;
+    width: 100%;
+}

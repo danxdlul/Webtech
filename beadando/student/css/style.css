@@ -1,9 +1,23 @@
 html{
     background-color: black;
 }
-
+table{
+    width: 100%;
+    text-align: center;
+    border: 10px solid black;
+    horiz-align: center;
+}
 body{
     margin: 0;
+}
+.carName{
+    width: 100%;
+    color: green;
+    text-align: center;
+    font-size: 20pt;
+}
+.table-item{
+    width: 33%;
 }
 .frontText{
     font-size: 32pt;
@@ -47,5 +61,23 @@ body{
     background-color: orangered;
 }
 .box{
-
+    font-size: 20pt;
+    text-align: center;
+    background-color: grey;
+}
+.manufacturerAdder{
+    color: green;
+    width: 100%;
+    background-color: darkgrey;
+    text-align: center;
+}
+.carAdder{
+    color: green;
+    width: 100%;
+    background-color: darkgrey;
+    text-align: center;
+}
+.formTable{
+    width: 80%;
+    margin-left: 10%;
 }

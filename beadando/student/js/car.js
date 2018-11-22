@@ -1,8 +1,7 @@
-var carsTemplate = `
-  <div class="box" style="display:none;">
-  	<h2>$(name)</h2>
-    <table class="table">
-    	<tr>
+var carTemplate = `
+    <table class="table" onclick="getManufacturer('$(manufacturer)')">
+    <tr><p class="carName">$(name)</p></tr>
+        <tr>
     		<td class="table-item"><h3>Manufacturer</h3><p>$(manufacturer)</p></td>
     		<td class="table-item"><h3>Consumption</h3><p>$(consumption)</p></td>
     		<td class="table-item"><h3>Color</h3><p>$(color)</p></td>
@@ -13,77 +12,86 @@ var carsTemplate = `
     		<td class="table-item"><h3>Horsepower</h3><p>$(horsepower)</p></td>
     	</tr>
     </table>
-  </div>
-`;
+    `;
 
-var manufacturerNames = [];
+var manufacturerNames =[];
 
 function initCars() {
 
-  		var modal = $('#modal');
-
-  		refreshCars();
-
-		$('#buttonAddCar').click(function() {
-			$('#carModal').css('display', 'block');
-		});
-
-		$("#carClose").click(function() {
-			$('#carModal').css('display', 'none');
-		});
-
-		$('#carForm').submit(function(e){
-			console.log($('#form').serialize());
-		    e.preventDefault();
-		    $.ajax({
-		        url:'/addCar',
-		        type:'post',
-		        data:$('#carForm').serialize(),
-		        success:function(){
-		        	$('#carModal').css('display', 'none');
-		        	$("input[type=text], textarea").val("");
-		        	$("input[type=number], textarea").val("");
-		        	refreshCars();
-		        },
-                error: function(e) {
-                    alert("The car name should be unique!");
-                }
-		    });
-		});
-
+    refreshCars();
+    $('#carForm').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url:'/addCar',
+            type:'post',
+            data:$('#carForm').serialize(),
+            success:function () {
+                $("input[type=text],textarea").val("");
+                $("input[type=number],textarea").val("");
+                refreshCars();
+            },
+            error: function (e) {
+                alert("Car already exists.")
+            }
+        })
+    })
 }
-
 
 function refreshCars() {
-	
-	$.get('/manufacturerNames', function(names) {
-		console.log(names);
-		manufacturerNames = names;
-		var selection = '';
-		for(var man of manufacturerNames) {
-			selection += ('<option>' + man + "</option>");
-		}
-		$("#manufacturerSelector").empty();
-		$('#manufacturerSelector').append(selection);
-	});
 
-	$.get('/cars', function(manufacturers) {
-		console.log(manufacturers);
-		$("#carContainer").empty();
-		//adding elements
-		for(var manufacturer of manufacturers) {
-			console.log(manufacturer);
-			$("#carContainer").append(parseTemplate(carsTemplate, manufacturer));
-		}
-		//displaying elements with animation
-		var time = 500;
-		($(".box")).each(function(index) {
-			$(this).delay(100*index).show(200);
-		});
-	});
+    $.get('/manufacturerNames', function(names) {
+        console.log(names);
+        manufacturerNames = names;
+        var selection = '';
+        for(var man of manufacturerNames) {
+            selection += ('<option>' + man + "</option>");
+        }
+        $("#manufacturerSelector").empty();
+        $('#manufacturerSelector').append(selection);
+    });
+
+    $.get('/cars', function(manufacturers) {
+        console.log(manufacturers);
+        $("#carTable").empty();
+        for(var manufacturer of manufacturers) {
+            console.log(manufacturer);
+            $("#carTable").append(parseTemplate(carTemplate, manufacturer));
+        }
+    });
+
+}
+function parseTemplate(template, obj) {
+    var newTemplate = template;
+    for(var key in obj) {
+        var occurrences = template.split(key).length;
+        for (var i = 0; i < occurrences; i++) {
+            newTemplate = newTemplate.replace("$("+ key +")", obj[key]);
+        }
+    }
+    return newTemplate;
+}
+
+function getManufacturer(name) {
+    document.cookie = "name=" + name;
+    $.ajax({
+        url: '/manufacturer',
+        type: 'get',
+        success: function(data) {
+            refreshCarList(data);
+        },
+        error: function(e) {
+            alert("There was an error while loading cars!");
+        }
+    });
 
 }
 
-function add() {
+function refreshCarList(data) {
+    $("#carTable").empty();
+    for(var car of data) {
+        console.log(car);
+        $('#carTable').append(parseTemplate(carTemplate,car));
+    }
+
 
 }

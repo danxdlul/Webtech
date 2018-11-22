@@ -8,9 +8,9 @@
   },
   "devDependencies": {
     "body-parser": "^1.17.1",
-    "express": "^4.15.2",
-    "jquery": "^3.3.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
     "fs": "^0.0.1-security",
-    "cookie-parser": "^1.4.3"
+    "jquery": "^3.3.1"
   }
 }

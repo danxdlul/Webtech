@@ -1,0 +1,51 @@
+html{
+    background-color: black;
+}
+
+body{
+    margin: 0;
+}
+.frontText{
+    font-size: 32pt;
+    width: 20%;
+    text-align: left;
+    padding: 50px;
+}
+.frontText:hover{
+    cursor:pointer;
+    color: red;
+}
+.menu{
+    border: 10px solid mediumpurple;
+    background-color: orange;
+    height: 200px;
+    width: 100%;
+}
+
+.splashText{
+    text-align: center;
+    font-size: 28pt;
+    color: green;
+}
+.container{
+    background-color: grey;
+    padding-top: 30px;
+}
+.image{
+    background-image: url("../images/logo.jpg");
+    width: 570px;
+    background-size: cover;
+}
+.menubutton{
+    font-size: 28pt;
+    text-align: center;
+    margin: 10px;
+}
+.menubutton:hover{
+    cursor: pointer;
+    opacity: 0.5;
+    background-color: orangered;
+}
+.box{
+
+}

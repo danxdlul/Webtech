@@ -1,0 +1,30 @@
+<div class="splashText">
+    This is the place where you can see the cars, and add your own.
+</div>
+<div class="container" id="carTable">
+
+</div>
+
+<div class="carAdder">
+    <h2>You can add a car here to database</h2>
+    <form id="carForm" method="post">
+        <table class="formTable">
+            <tr>
+                <td><h3>Name</h3><p><input type="text" name="name" required id="name"/></p></td>
+                <td><h3>Consumption</h3><p><input type="text" required name="consumption" id="consumption"/></p></td>
+                <td><h3>Color</h3><p><input type="text" required name="color" id="color"/></p></td>
+            </tr>
+            <tr>
+                <td><h3>Manufacturer</h3><p><select type="text" name="manufacturer" required id="manufacturerSelector"/></p></td>
+                <td><h3>Available</h3><p><input type="number" required name="available" id="available"/></p></td>
+                <td><h3>Year</h3><p><input type="number" required name="year" id="year"/></p></td>
+            </tr>
+            <tr>
+                <td><h3>Horsepower</h3><p><input type="number" required name="horsepower" id="horsepower"/></p></td>
+            </tr>
+            <tr>
+                <td><p><button class="submit-button" type="submit">Add</button></p></td>
+            </tr>
+        </table>
+    </form>
+</div>

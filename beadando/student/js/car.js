@@ -1,6 +1,6 @@
 var carTemplate = `
-    <table class="table" onclick="getManufacturer('$(manufacturer)')">
-    <tr><p class="carName">$(name)</p></tr>
+    <table class="carTable" onclick="getManufacturer('$(manufacturer)')">
+    <tr><p class="carName" onclick="getManufacturer('$(manufacturer)')">$(name)</p></tr>
         <tr>
     		<td class="table-item"><h3>Manufacturer</h3><p>$(manufacturer)</p></td>
     		<td class="table-item"><h3>Consumption</h3><p>$(consumption)</p></td>

@@ -1,4 +1,4 @@
-window.onload = function () {
+
     jQuery(document).ready(function () {
         $("#content").load("html/default.html");
 
@@ -18,4 +18,3 @@ window.onload = function () {
             });
         });
     });
-}

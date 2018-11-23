@@ -36,7 +36,6 @@ function refresh() {
     return $.get('/manufacturers', function(manufacturers) {
         console.log(manufacturers);
         $("#manufacturerTable").empty();
-        //adding elements
         for(var manufacturer of manufacturers) {
             console.log(manufacturer);
             $("#manufacturerTable").append(parseTemplate(manufacturerTemplate, manufacturer));

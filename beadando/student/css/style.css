@@ -10,11 +10,18 @@ table{
 body{
     margin: 0;
 }
+.carTable{
+    width: 100%;
+    text-align: center;
+    border: 10px solid black;
+    horiz-align: center;
+}
 .carName{
     width: 100%;
     color: green;
     text-align: center;
     font-size: 20pt;
+    padding-top: 10px;
 }
 .table-item{
     width: 33%;
@@ -24,6 +31,7 @@ body{
     width: 20%;
     text-align: left;
     padding: 50px;
+    font-family: "Times New Roman",Times,serif;
 }
 .frontText:hover{
     cursor:pointer;
@@ -43,7 +51,15 @@ body{
 }
 .container{
     background-color: grey;
-    padding-top: 30px;
+    text-align: center;
+}
+.carTable:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+.carName:hover{
+    cursor: pointer;
+    opacity: 0.5;
 }
 .image{
     background-image: url("../images/logo.jpg");
@@ -58,6 +74,7 @@ body{
 .menubutton:hover{
     cursor: pointer;
     opacity: 0.5;
+    color: purple;
     background-color: orangered;
 }
 .box{
